@@ -1,0 +1,408 @@
+---
+title: "Stickleback"
+author: "CB Wall"
+date: "2025-04-04"
+output: html_document
+---
+
+## Project Overview
+
+Compound specific isotope analysis of individual amino acids (CSIA-AA) is a new and exciting tool in the study of trophic ecology and animal nutrition. CSIA-AA are not constrained by the same spatiotemporal variability and fractionation effects observed in stable isotope analyses (SIA) of bulk tissues (carbons + lipids + proteins). Therefore, CSIA-AA represent a sea change in our ability to understand food webs and  trophic interactions.  
+
+Certain amino acids can only be produced by primary producers (bacteria, algae, plants, fungi). These *de novo* synthesized amino acids, termed 'essential amino acids (AA~ESS~),' must be gained by animals through feeding/dietary means. Essential amino acids are passed from producers to consumers with limited fractionation or transamination, making them an ideal tool to examine the sources of carbon in consumers. Moreover, essential amino acids differ in their isotope signatures due to the biochemical pathways found in different Groups of producers (i.e., fungi, bacteria, microalgae, C~3~/C~4~/CAM plants), allowing producers signatures to be mapped with high resolution. By using multiple essential amino acids as a multivariate trait, an essential amino acid fingerprint can be used to identify the source of amino acids in consumers and the contributions and identify of producers in diets.
+
+Terrestrial energy channels (collevtively, "allochthony") in aquatic systems is a resource for aquatic consumers and ecosystems, although its significance has been debated. Zooplankton prefer (and require) the high fatty acid content of microalgae (or autochthonous energy channels), which is a vital nutritional source.Terrestrial materials entering Lakes can leads to browning and a decrease in microalgae productivity as light is attenuated. In this case, allochthonous energy channels may limits primary production but can be an important alternative resource for consumers that are able to utilize the abundant (although low quality) nutritional source.
+
+```{r setup chunk, setup, include = FALSE, cache=FALSE, message=FALSE, warning=FALSE, collapse=TRUE}
+if (!require('knitr')) install.packages('knitr'); library('knitr')
+knitr::opts_chunk$set(warning=FALSE, message=FALSE, fig.align='center')
+
+# load packages
+if (!require("pacman")) install.packages("pacman") # for rapid install if not in library
+
+# use pacman to load all the packages you are missing!
+pacman::p_load('knitr', 'dplyr', 'reshape2', 'lme4', 'lmerTest', 'tidyverse', 'effects', 'plyr', 'dplyr', 'plotrix', 'car',"gridExtra", "cowplot", "tools", "mgcv", "gratia", "MASS", "stats", "tidymv", "sjstats", "coin", "emmeans", "ggplot2", "mda", "nortest", "reshape2", "gmm", "propagate","ggmap", "RgoogleMaps", "MixSIAR","GGally", "ggbiplot", "ggcorrplot", "vegan", "pairwiseAdonis", "lubridate", "zoo", "plotrix")
+
+
+rm(list=ls()) 
+
+### general formatting for figures 
+Fig.formatting<-(theme_classic()) +
+  theme(text=element_text(size=10),
+        axis.line=element_blank(),
+        legend.text.align = 0,
+        legend.text=element_text(size=10),
+        #legend.title = element_blank(),
+        panel.border = element_rect(fill=NA, colour = "black", linewidth =1),
+        axis.ticks.length=unit(0.25, "cm"),
+        axis.text.y=element_text(
+          margin=unit(c(0.5, 0.5, 0.5, 0.5), "cm"), colour="black", size=10), 
+        axis.text.x=element_text(
+          margin=unit(c(0.5, 0.5, 0.5, 0.5), "cm"), colour="black", size=10)) +
+  theme(legend.key.size = unit(0.4, "cm")) +
+  theme(panel.spacing=unit(c(0, 0, 0, 0), "cm"))
+```
+
+### Site map
+```{r}
+# load data
+SNL.env<-read.csv("data/SNL.envdata.csv")
+API<-read.csv("data/API_key.csv")
+API.key<-API[1,1]
+
+#quick map
+# ggplot(SNL.env, aes(x = longitude, y = latitude)) + coord_quickmap() + geom_point()
+
+######## using ggmap
+register_google(key=API.key)
+
+########
+#BC Map
+########
+
+BC.map<-get_googlemap(center=c(-121, y = 37), zoom = 6, source="google", mapType="hybrid",
+                      style=c(feature="poi",element="labels",visibility="off")) 
+
+BC.map_for_man <- ggmap(CA.map) +
+  geom_point(aes(x = -119, y = 38), pch=23,colour="black",fill="mediumseagreen", size = 3, stroke=0.5) +
+  xlab("longitude") + ylab("latitude") +
+ theme(text = element_text(size=6),
+       plot.margin = unit(c(0.2, 0.5, 0.2, 0.2), "cm")) 
+
+##########
+# site map
+##########
+BC.rev=c(x=-119.25, y = 37.75)
+
+map.BC<-get_map(BC.rev, 
+                      zoom=9, 
+                      scale = 2, 
+                      mapType= "satellite",
+                      source="google", extent= "device", legend="topright")
+
+## sites lat long
+lat.long<-BC.env %>%
+  dplyr::select(Lake, latitude, longitude, elevation..m)
+
+BC.sites<-
+  ggmap(map.SNL)+
+  geom_point(aes(x=longitude, y=latitude), data=lat.long, alpha=0.8, color="dodgerblue", size=4)+
+  geom_point(aes(x=longitude, y=latitude), data=lat.long, alpha=1, color="black", size=4, pch=21)+
+  labs(x="longitude", y="latitude") +
+  theme(text = element_text(size=6),
+       plot.margin = unit(c(0.2, 0.5, 0.2, 0.2), "cm")) 
+  
+###
+
+site.plots<-plot_grid(BC.map_for_man, BC.sites, 
+          labels=c('A', 'B'), label_size=8, hjust=-1, vjust= 6, ncol=2, nrow=1)
+
+
+### export it
+pdf(file= "figures/sites_AB.pdf", height=4, width=8)
+site.plots
+dev.off()
+```
+
+
+## Data import
+Load in CSIA data (Hawaii) and metadata (UCSD/BC). Load in training data of sources to use in PCA and LDA.
+```{r}
+##### read in stickleback
+df<-read.csv("data/CSIA_stickl.csv")
+
+#remove standards
+notwanted.AAs<-c("Met", "Nor", "AAA")
+
+df<-df %>% 
+  dplyr::filter(!as.factor(AA.short) %in% notwanted.AAs)
+df<-droplevels(df)
+
+#subset columns
+df.long<-df %>% dplyr::select(group, region, lake, type, sex, sample.ID, AA.short, d13C)
+
+# set factors
+make.fac<-c("group", "region", "lake", "type", "AA.short")
+df.long[make.fac] <- lapply(df.long[make.fac], factor)
+
+# use 'df.long; for ALL AA boxplot below
+```
+
+- normalize data
+```{r}
+#########################
+###### melt to wide
+df.wide<-reshape(df.long, idvar= c("group", "region", "lake", "type", "sex", "sample.ID"),
+                     timevar="AA.short", direction='wide')
+
+# make wide to calculate normalized EAAs
+df.wide.ESS<-df.wide %>% dplyr::select(group, region, lake, type, sex, sample.ID, 
+                                d13C.Ile, d13C.Leu, d13C.Phe, d13C.Thr, d13C.Val)
+
+### Normalize data
+#make ID column to run the normalization
+df.wide.ESS$ID<-1:nrow(df.wide.ESS)
+for(i in 1:length(df.wide.ESS$ID)){
+  df.wide.ESS$d13C.Ile.n[i] <- (df.wide.ESS$d13C.Ile[i]-mean(as.numeric(df.wide.ESS[i,7:11])))
+  df.wide.ESS$d13C.Leu.n[i] <- (df.wide.ESS$d13C.Leu[i]-mean(as.numeric(df.wide.ESS[i,7:11])))
+  df.wide.ESS$d13C.Phe.n[i] <- (df.wide.ESS$d13C.Phe[i]-mean(as.numeric(df.wide.ESS[i,7:11])))
+  df.wide.ESS$d13C.Thr.n[i] <- (df.wide.ESS$d13C.Thr[i]-mean(as.numeric(df.wide.ESS[i,7:11])))
+  df.wide.ESS$d13C.Val.n[i] <- (df.wide.ESS$d13C.Val[i]-mean(as.numeric(df.wide.ESS[i,7:11])))
+}
+
+#reorder
+df.fish.AA<- df.wide.ESS %>% 
+  dplyr::select(group, region, lake, type, sex, sample.ID,
+                d13C.Ile, d13C.Leu, d13C.Phe, d13C.Thr, d13C.Val,
+                d13C.Ile.n, d13C.Leu.n, d13C.Phe.n, d13C.Thr.n, d13C.Val.n)
+
+df.ESS.norm.fish<- df.fish.AA %>% dplyr::select(group, region, lake, type,
+                                        d13C.Ile.n, d13C.Leu.n, d13C.Phe.n, d13C.Thr.n, d13C.Val.n)
+
+
+#####################################
+##### read in training data on sources
+df.source<-read.csv("data/Training_zoop_prod.csv")
+
+df.source.ESS<- df.source %>% 
+  dplyr::select(group, region, lake, type, sample.ID,
+                d13C.Ile, d13C.Leu, d13C.Phe, d13C.Thr, d13C.Val,
+                d13C.Ile.n, d13C.Leu.n, d13C.Phe.n, d13C.Thr.n, d13C.Val.n)
+
+df.source.reduced<- df.source.ESS %>% dplyr::select(group, region, lake, type,
+                                        d13C.Ile.n, d13C.Leu.n, d13C.Phe.n, d13C.Thr.n, d13C.Val.n)
+```
+
+
+```{r}
+#######
+# combine training data (producers, plankton) and fish data
+fish.prod.df<-rbind(df.ESS.norm.fish, df.source.reduced)
+
+# make depth a factor so we can region
+fish.prod.long<-melt(fish.prod.df, idvar= c("group", "region", "lake", "type"))
+
+# rename factors
+fish.prod.long <- fish.prod.long %>% 
+       dplyr::rename("EAA.n" = "variable", "d13C" = "value")
+
+fish.prod.long$group2<- 
+  ifelse(fish.prod.long$group=="stickleback" & fish.prod.long$type=="benthic", "Benthic.stickl",
+         ifelse(fish.prod.long$group=="stickleback" & fish.prod.long$type=="limnetic", "Limnetic.stickl",
+                ifelse(fish.prod.long$group=="Algae", "Algae",
+                       ifelse(fish.prod.long$group== "POM", "POM",
+                              ifelse(fish.prod.long$group== "Terrestrial Plants", "Terrestrial Plants", 
+                                    "Zooplankton")))))
+
+fish.prod.long$group2<-factor(fish.prod.long$group2, 
+                              levels=c("Benthic.stickl", "Limnetic.stickl",
+                                       "Algae", "POM", "Terrestrial Plants","Zooplankton"))
+
+####### plot by EAA of the 2 ecotypes
+EAA.box.all<-ggplot(fish.prod.long, aes(x=EAA.n, y=d13C, fill=group2))+
+  geom_boxplot(alpha=0.8)+
+  ylab(expression(paste("AA  ", delta^{13}, C, " (\U2030)"))) +
+  xlab("Normalized-Essential Amino Acids") +
+  theme_classic()
+
+######
+pdf(file= "figures/EAA.box.all.pdf", height=8, width=8)
+plot_grid(EAA.box.all)
+dev.off()
+
+```
+
+#### All AA boxplot
+```{r}
+
+################ raw data
+df.long.fish<-df.long
+
+####### plot ALL AA of the 2 ecotypes
+AA.box.all<-ggplot(df.long.fish, aes(x=AA.short, y=d13C, fill=type))+
+  geom_boxplot(alpha=0.8)+
+  geom_jitter(position = position_jitter(width = 0.1, height = 0.1), 
+              aes(fill=type), colour="black",pch=21, size=1.5)+
+  ylab(expression(paste("AA  ", delta^{13}, C, " (\U2030)"))) +
+  xlab("Amino Acids") +
+  theme_classic()
+
+################ normalized data
+# re-melt
+# make depth a factor so we can region
+df.ESS.n.long<-melt(df.ESS.norm.fish, idvar= c("group", "region", "lake", "type"))
+
+# rename factors
+df.ESS.n.long <- df.ESS.n.long %>% 
+       dplyr::rename("EAA.n" = "variable", "d13C" = "value")
+
+# make factors for columns
+make.fac<-c("group", "region", "lake", "type")
+df.ESS.n.long[make.fac] <- lapply(df.ESS.n.long[make.fac], factor)
+
+df.ESS.n.long <- df.ESS.n.long %>%
+     mutate(EAA.n = dplyr::recode(EAA.n,
+                           d13C.Ile.n = "Ile.n",
+                           d13C.Leu.n = "Leu.n",
+                           d13C.Phe.n = "Phe.n",
+                           d13C.Val.n = "Val.n",
+                           d13C.Thr.n = "Thr.n"))
+     
+
+####### plot by EAA of the 2 ecotypes
+EAA.box.norm<-ggplot(df.ESS.n.long, aes(x=EAA.n, y=d13C, fill=type))+
+  geom_boxplot(alpha=0.8)+
+  geom_jitter(position = position_jitter(width = 0.3, height = 0.1), 
+              aes(fill=type), colour="black",pch=21, size=1.5)+
+  ylab(expression(paste("AA  ", delta^{13}, C, " (\U2030)"))) +
+  xlab("Normalized-Essential Amino Acids") +
+  theme_classic()
+
+######
+pdf(file= "figures/EAA.box.norm.pdf", height=8, width=8)
+plot_grid(EAA.box.norm)
+dev.off()
+```
+
+#### PCAs
+normalized fish data for PCA
+```{r}
+##### # make the PCA df
+PCA.norm.df<-df.ESS.norm.fish
+
+# factors: just Lake sampling sites and phy.group (cladocera or copepoda, >350um)
+PCA.fac.n<- PCA.norm.df %>%
+  dplyr::select(region, lake, type)
+
+# the response variables
+PCA.dat.n<- PCA.norm.df %>%
+  dplyr::select(d13C.Ile.n, d13C.Leu.n, d13C.Phe.n, d13C.Thr.n, d13C.Val.n)
+
+# run PERMANOVA for Lake non-norm
+set.seed(213)
+EAA.norm.fish<-adonis2(PCA.dat.n~type, data=PCA.fac.n, permutations=999, method="euclidian", by="terms")
+EAA.norm.fish
+
+### PCA
+# run the PCA on scaled and centered data
+set.seed(138)
+PC.norm<- prcomp(PCA.dat.n, center = TRUE, scale= TRUE) 
+
+PC.norm.sum<-summary(PC.norm)
+#plot(PC.plank, Type="lines", main="PC.area eigenvalues")
+# 2 PCs explain 96% of variation, most in 1 axis (9)
+
+###### plot for PCA by Lake
+## PC1 and PC2
+PCA.raw.fig <- ggbiplot(PC.norm, choices = 1:2, obs.scale = 1, var.scale = 1, 
+                      groups=PCA.norm.df$type, varname.color="saddlebrown", varname.adjust = 2,
+                      ellipse = FALSE, circle = FALSE) +
+  ggforce::geom_mark_ellipse(aes(fill = PCA.norm.df$type,
+                        color = PCA.norm.df$type)) +
+  theme(legend.position = 'top') +
+  geom_point(aes(color=PCA.norm.df$type)) +
+  geom_vline(xintercept=0, linetype="dashed", color = "gray60")+
+  geom_hline(yintercept=0, linetype="dashed", color = "gray60")+
+  ggtitle("ESS-norm")+
+  theme_classic()+
+  theme(legend.text=element_text(size=10), 
+    aspect.ratio=0.8, axis.ticks.length=unit(0.2, "cm"),
+    axis.text.y=element_text(margin=unit(c(0.5, 0.5, 0.5, 0.5), "cm")),
+    axis.text.x=element_text(margin=unit(c(0.5, 0.5, 0.5, 0.5), "cm")))+ 
+  xlim(-4,4) + ylim(-3,3)
+
+```
+
+raw fish data for PCA
+```{r}
+########## raw 
+df.ESS.raw.fish<- df.fish.AA %>% dplyr::select(group, region, lake, type,
+                                        d13C.Ile, d13C.Leu, d13C.Phe, d13C.Thr, d13C.Val)
+##### # make the PCA df
+PCA.raw.df<-df.ESS.raw.fish
+
+# factors: just Lake sampling sites and phy.group (cladocera or copepoda, >350um)
+PCA.fac.r<- PCA.raw.df %>%
+  dplyr::select(region, lake, type)
+
+# the response variables
+PCA.dat.r<- PCA.raw.df %>%
+  dplyr::select(d13C.Ile, d13C.Leu, d13C.Phe, d13C.Thr, d13C.Val)
+
+
+### PCA
+# run the PCA on scaled and centered data
+set.seed(138)
+PC.raw<- prcomp(PCA.dat.r, center = TRUE, scale= TRUE) 
+
+PC.raw.sum<-summary(PC.raw)
+#plot(PC.plank, Type="lines", main="PC.area eigenvalues")
+# 2 PCs explain 96% of variation, most in 1 axis (9)
+
+###### plot for PCA by Lake
+## PC1 and PC2
+PCA.raw.fig <- ggbiplot(PC.raw, choices = 1:2, obs.scale = 1, var.scale = 1, 
+                      groups=PCA.raw.df$type, varname.color="saddlebrown", varname.adjust = 2,
+                      ellipse = FALSE, circle = FALSE) +
+  ggforce::geom_mark_ellipse(aes(fill = PCA.raw.df$type,
+                        color = PCA.raw.df$type)) +
+  theme(legend.position = 'top') +
+  geom_point(aes(color=PCA.raw.df$type)) +
+  geom_vline(xintercept=0, linetype="dashed", color = "gray60")+
+  geom_hline(yintercept=0, linetype="dashed", color = "gray60")+
+  ggtitle("ESS-raw")+
+  theme_classic()+
+  theme(legend.text=element_text(size=10), 
+    aspect.ratio=0.8, axis.ticks.length=unit(0.2, "cm"),
+    axis.text.y=element_text(margin=unit(c(0.5, 0.5, 0.5, 0.5), "cm")),
+    axis.text.x=element_text(margin=unit(c(0.5, 0.5, 0.5, 0.5), "cm")))+
+  ylim(-0.5, 0.3) + xlim(-4,3)
+
+```
+
+compare normalized training data of prod, fishes, plankton in PCA
+```{r}
+fish.prod.df
+
+# factors: just Lake sampling sites and phy.group (cladocera or copepoda, >350um)
+fish.prod.fac<- fish.prod.df %>%
+  dplyr::select(group, region, lake, type)
+
+# the response variables
+fish.prod.dat<- fish.prod.df %>%
+  dplyr::select(d13C.Ile.n, d13C.Leu.n, d13C.Phe.n, d13C.Thr.n, d13C.Val.n)
+
+
+### PCA
+# run the PCA on scaled and centered data
+set.seed(138)
+PC.fish.prod<- prcomp(fish.prod.dat, center = TRUE, scale= TRUE) 
+
+PC.fish.prod.sum<-summary(PC.fish.prod)
+#plot(PC.plank, Type="lines", main="PC.area eigenvalues")
+# 2 PCs explain 96% of variation, most in 1 axis (9)
+
+###### plot for PCA by Lake
+## PC1 and PC2
+PCA.prod.fish.fig <- ggbiplot(PC.fish.prod, choices = 1:2, obs.scale = 1, var.scale = 1, 
+                      groups=fish.prod.df$group, varname.color="saddlebrown", varname.adjust = 2,
+                      ellipse = TRUE, circle = FALSE, ellipse.alpha=0.05,
+                      ellipse.prob=0.90, ellipse.linewidth =0.8) +
+  geom_point(aes(color=fish.prod.df$group, shape=fish.prod.df$type), size=3.5) +
+  geom_vline(xintercept=0, linetype="dashed", color = "gray60")+
+  geom_hline(yintercept=0, linetype="dashed", color = "gray60")+
+  ggtitle("ESS-raw")+
+  theme_classic()+
+  theme(legend.text=element_text(size=10), 
+    aspect.ratio=0.8, axis.ticks.length=unit(0.2, "cm"),
+    axis.text.y=element_text(margin=unit(c(0.5, 0.5, 0.5, 0.5), "cm")),
+    axis.text.x=element_text(margin=unit(c(0.5, 0.5, 0.5, 0.5), "cm")))
+
+######
+pdf(file= "figures/PCA.prod.fish.pdf", height=8, width=8)
+plot_grid(PCA.prod.fish.fig)
+dev.off()
+
+
+```
+

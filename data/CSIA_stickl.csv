@@ -1,0 +1,97 @@
+group,region,lake,type,sex,sample.type,sample.ID,run.ID,sample.mass.g,AA,AA.short,d13C,d13C.SD
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Alanine,Ala,-19.6,0.21
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Glycine,Gly,-15.73,0.36
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Threonine,Thr,-18.03,0.26
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Serine,Ser,-8.08,0.18
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Valine,Val,-28.34,0.17
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Leucine,Leu,-30.74,0.11
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Isoleucine,Ile,-26.43,0.06
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Norleucine,Nor,-28.43,0.11
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Proline,Pro,-19.82,0.15
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Aspartic acid,Asp,-18.97,0.15
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Methionine,Met,-25.87,0.2
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Glutamic acid,Glx,-18.57,0.44
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Phenylalanine,Phe,-30.07,0.14
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Aminoadipic Acid,AAA,-12.62,0.25
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Tyrosine,Tyr,-26.25,0.29
+stickleback,texada,paxton,benthic,F,muscle,2024_DJR_056,Wall stick B1 S2,8.858,Lysine,Lys,-24.63,0.2
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Alanine,Ala,-28.7,0.07
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Glycine,Gly,-22.9,0.14
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Threonine,Thr,-28.09,0.6
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Serine,Ser,-20.81,0.41
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Valine,Val,-34.66,1.08
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Leucine,Leu,-36.8,0.47
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Isoleucine,Ile,-31.71,0.65
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Norleucine,Nor,-31.37,0.58
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Proline,Pro,-27.2,0.5
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Aspartic acid,Asp,-28.28,0.71
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Methionine,Met,-33.47,0.25
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Glutamic acid,Glx,-27.16,0.52
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Phenylalanine,Phe,-36.34,0.71
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Aminoadipic Acid,AAA,-17.2,0.4
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Tyrosine,Tyr,-33.78,0.57
+stickleback,texada,priest,benthic,F,muscle,2024_DJR_018,Wall stick B1 S3,6.758,Lysine,Lys,-30.48,0.34
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Alanine,Ala,-21.16,0.9
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Glycine,Gly,-17.01,0.42
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Threonine,Thr,-22.07,1.02
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Serine,Ser,-10.96,0.34
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Valine,Val,-29.69,0.95
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Leucine,Leu,-32.55,0.46
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Isoleucine,Ile,-28.33,1
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Norleucine,Nor,-30.49,0.14
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Proline,Pro,-22.4,0.4
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Aspartic acid,Asp,-21.77,0.55
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Methionine,Met,-26.41,0.24
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Glutamic acid,Glx,-22.3,0.32
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Phenylalanine,Phe,-32.08,0.47
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Aminoadipic Acid,AAA,-16.81,0.23
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,6.468,Tyrosine,Tyr,-28.64,1.07
+stickleback,texada,priest,benthic,M,muscle,2024_DJR_006,Wall stick B1 S4,7.745,Lysine,Lys,-23.45,0.39
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Alanine,Ala,-31.67,0.03
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Glycine,Gly,-25.93,0.52
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Threonine,Thr,-29.34,0.08
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Serine,Ser,-22.35,0.88
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Valine,Val,-36.28,0.38
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Leucine,Leu,-39.67,0.08
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Isoleucine,Ile,-34.36,0.21
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Norleucine,Nor,-29.66,0.15
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Proline,Pro,-30.02,0.16
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Aspartic acid,Asp,-30.81,0.17
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Methionine,Met,-36.57,0.23
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Glutamic acid,Glx,-29.48,0.19
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Phenylalanine,Phe,-39.75,0.29
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Aminoadipic Acid,AAA,-15.9,0.16
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Tyrosine,Tyr,-36.82,0.43
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_044,Wall stick B1 S5,7.745,Lysine,Lys,-33.4,0.68
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Alanine,Ala,-32.15,0.22
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Glycine,Gly,-24.37,0.14
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Threonine,Thr,-29.55,1.46
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Serine,Ser,-22.53,1.62
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Valine,Val,-37.8,0.34
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Leucine,Leu,-40.33,0.31
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Isoleucine,Ile,-33.73,0.07
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Norleucine,Nor,-28.55,0.35
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Proline,Pro,-30.16,0.11
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Aspartic acid,Asp,-30.95,0.37
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Methionine,Met,-35.73,0.48
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Glutamic acid,Glx,-28.94,0.09
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Phenylalanine,Phe,-39.33,0.39
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Aminoadipic Acid,AAA,-12.21,0.22
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Tyrosine,Tyr,-35.55,0.95
+stickleback,texada,paxton,limnetic,M,muscle,2024_DJR_051_064,Wall stickl B1S7,8.752,Lysine,Lys,-33.91,0.98
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Alanine,Ala,-32.18,0.66
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Glycine,Gly,-25.21,0.78
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Threonine,Thr,-30.78,1.54
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Serine,Ser,-23.62,2.4
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Valine,Val,-37.74,0.19
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Leucine,Leu,-40.24,0.25
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Isoleucine,Ile,-33.79,0.96
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Norleucine,Nor,-27.76,0.09
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Proline,Pro,-30.5,0.14
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Aspartic acid,Asp,-31.99,0.13
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Methionine,Met,-36.3,0.34
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Glutamic acid,Glx,-29.47,0.21
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Phenylalanine,Phe,-39.68,0.27
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Aminoadipic Acid,AAA,-12.56,0.33
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Tyrosine,Tyr,-35.96,0.64
+stickleback,texada,paxton,limnetic,F,muscle,2024_DJR_059,Wall stickl B1S8,5.809,Lysine,Lys,-33.17,1.4

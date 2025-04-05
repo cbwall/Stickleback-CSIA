@@ -1,0 +1,56 @@
+﻿group,group.detail,region,lake,sample.ID,type,d13C.Ile,d13C.Leu,d13C.Phe,d13C.Thr,d13C.Val,d13C.Ile.n,d13C.Leu.n,d13C.Phe.n,d13C.Thr.n,d13C.Val.n
+Algae,Algae,Sierra Nevada Mountains,Blue,ALR-BLUELAKE-30JUL2022-EPILITHIC-1,producers,-16.03,-20.87,-21.26,-13.16,-20.16,2.266,-2.574,-2.964,5.136,-1.864
+Algae,Algae,Sierra Nevada Mountains,Blue,ALR-BLUELAKE-30JUL2022-EPILITHIC-2,producers,-17.68,-21.92,-21.97,-12.78,-21.86,1.562,-2.678,-2.728,6.462,-2.618
+Algae,Algae,Sierra Nevada Mountains,Blue,ALR-BLUELAKE-30JUL2022-FILGREEN-1,producers,-19.29,-23.26,-25.76,-14.12,-23.57,1.91,-2.06,-4.56,7.08,-2.37
+Algae,Algae,Sierra Nevada Mountains,Blue,ALR-BLUELAKE-30JUL2022-FILGREEN-2,producers,-17.02,-24.29,-23.06,-9.29,-21.94,2.1,-5.17,-3.94,9.83,-2.82
+Algae,Algae,Sierra Nevada Mountains,Blue,ALR-BLUELAKE-30JUL2022-FILGREEN-3,producers,-11.93,-14.74,-16.48,-6.87,-16.88,1.45,-1.36,-3.1,6.51,-3.5
+Algae,Algae,Sierra Nevada Mountains,EasternBrook,ALR-EASTBROOK-02AUG2022-EPISALMICDIATOMS-1,producers,-23.17,-27.51,-28.41,-18.08,-32.14,2.692,-1.648,-2.548,7.782,-6.278
+Algae,Algae,Sierra Nevada Mountains,EasternBrook,ALR-EASTBROOK-02AUG2022-EPISALMICDIATOMS-2,producers,-23.78,-27.88,-27.43,-18.19,-30.48,1.772,-2.328,-1.878,7.362,-4.928
+Algae,Algae,Sierra Nevada Mountains,Sunrise2,ALR-SUNRISE-31JUL2022-EPISALMIC-1,producers,-25.29,-33.01,-31.09,-23.48,-33.89,4.062,-3.658,-1.738,5.872,-4.538
+Algae,Algae,Sierra Nevada Mountains,Sunrise2,ALR-SUNRISE-31JUL2022-EPISALMIC-2,producers,-24.87,-33.72,-29.11,-20.17,-30.62,2.828,-6.022,-1.412,7.528,-2.922
+POM,POM,Sierra Nevada Mountains,Cascade,SNL-POM-01,producers,-25.9,-33.3,-32.6,-29.6,-30.5,4.48,-2.92,-2.22,0.78,-0.12
+POM,POM,Sierra Nevada Mountains,Sunrise2,SNL-POM-02,producers,-30.9,-36.7,-34,-27.2,-31,1.06,-4.74,-2.04,4.76,0.96
+POM,POM,Sierra Nevada Mountains,Lukens,SNL-POM-03,producers,-28,-35,-35,-24.6,-29.8,2.48,-4.52,-4.52,5.88,0.68
+POM,POM,Sierra Nevada Mountains,Blue,SNL-POM-04,producers,-20.3,-30.6,-29.3,-18.8,-23.7,4.24,-6.06,-4.76,5.74,0.84
+POM,POM,Sierra Nevada Mountains,MayPond,SNL-POM-05,producers,-28.2,-34.6,-33.8,-24.2,-31.2,2.2,-4.2,-3.4,6.2,-0.8
+POM,POM,Sierra Nevada Mountains,EasternBrook,SNL-POM-GFF55,producers,-27.8,-34.1,-32.8,-25,-30.7,2.28,-4.02,-2.72,5.08,-0.62
+POM,POM,Sierra Nevada Mountains,Granite2,SNL-POM-GFF62,producers,-19.8,-27.6,-26.2,-18.1,-25,3.54,-4.26,-2.86,5.24,-1.66
+POM,POM,Sierra Nevada Mountains,EasternBrook,SNL-POM-GFF75,producers,-28.6,-33.6,-32.5,-24.9,-31.1,1.54,-3.46,-2.36,5.24,-0.96
+Terrestrial Plants,Terrestrial Plants,Sierra Nevada Mountains,Lukens,SNL-TERPLA-01,producers,-21.2,-37,-28.6,-12.8,-28,4.32,-11.48,-3.08,12.72,-2.48
+Terrestrial Plants,Terrestrial Plants,Sierra Nevada Mountains,Lukens,SNL-TERPLA-07,producers,-22.7,-35.2,-25.2,-17.3,-20,1.38,-11.12,-1.12,6.78,4.08
+Terrestrial Plants,Terrestrial Plants,Sierra Nevada Mountains,MayPond,SNL-TERPLA-08,producers,-23.7,-35,-26.6,-16.2,-28.2,2.24,-9.06,-0.66,9.74,-2.26
+Terrestrial Plants,Terrestrial Plants,Sierra Nevada Mountains,MayPond,SNL-TERPLA-10,producers,-25.2,-36.6,-26.1,-20,-28.1,2,-9.4,1.1,7.2,-0.9
+Terrestrial Plants,Terrestrial Plants,Sierra Nevada Mountains,Sunrise2,SNL-TERPLA-13,producers,-23,-36,-26.4,-13.8,-30.8,3,-10,-0.4,12.2,-4.8
+Terrestrial Plants,Terrestrial Plants,Sierra Nevada Mountains,Sunrise2,SNL-TERPLA-14,producers,-22.8,-35,-28.7,-13.1,-22.5,1.62,-10.58,-4.28,11.32,1.92
+Terrestrial Plants,Terrestrial Plants,Sierra Nevada Mountains,Blue,SNL-TERPLA-15,producers,-25.8,-37,-28,-19.8,-25.1,1.34,-9.86,-0.86,7.34,2.04
+Terrestrial Plants,Terrestrial Plants,Sierra Nevada Mountains,Blue,SNL-TERPLA-18,producers,-21.7,-35.1,-26.2,-9.8,-25.8,2.02,-11.38,-2.48,13.92,-2.08
+Terrestrial Plants,Terrestrial Plants,Sierra Nevada Mountains,Blue,SNL-TERPLA-27,producers,-21.4,-32.4,-26.1,-15.3,-20.4,1.72,-9.28,-2.98,7.82,2.72
+Terrestrial Plants,Terrestrial Plants,Sierra Nevada Mountains,Blue,SNL-TERPLA-SA,producers,-25.7,-38,-29.7,-20.3,-30,3.04,-9.26,-0.96,8.44,-1.26
+Zooplankton,Daphnia,Sierra Nevada Mountains,Lukens,SNL-ZOOP-01A,zooplankton,-28.4,-35.1,-36.9,-22.5,-31.8,2.54,-4.16,-5.96,8.44,-0.86
+Zooplankton,Daphnia,Sierra Nevada Mountains,Lukens,SNL-ZOOP-02A,zooplankton,-26.1,-34.8,-34.2,-24,-31.1,3.94,-4.76,-4.16,6.04,-1.06
+Zooplankton,calanoid,Sierra Nevada Mountains,Lukens,SNL-ZOOP-03A,zooplankton,-29.1,-38,-36.8,-23.5,-33.7,3.12,-5.78,-4.58,8.72,-1.48
+Zooplankton,calanoid,Sierra Nevada Mountains,Lukens,SNL-ZOOP-04A,zooplankton,-29.2,-38.4,-36.6,-26.4,-33.1,3.54,-5.66,-3.86,6.34,-0.36
+Zooplankton,calanoid,Sierra Nevada Mountains,MayPond,SNL-ZOOP-05A,zooplankton,-31.1,-40.5,-37.3,-28.7,-34.9,3.4,-6,-2.8,5.8,-0.4
+Zooplankton,calanoid,Sierra Nevada Mountains,MayPond,SNL-ZOOP-06A,zooplankton,-29.7,-39.7,-35.1,-22.7,-30.8,1.9,-8.1,-3.5,8.9,0.8
+Zooplankton,calanoid,Sierra Nevada Mountains,MayPond,SNL-ZOOP-07A,zooplankton,-30,-38.7,-34.7,-24.2,-31.4,1.8,-6.9,-2.9,7.6,0.4
+Zooplankton,calanoid_cyclopoid,Sierra Nevada Mountains,Blue,SNL-ZOOP-08A,zooplankton,-23.1,-32.8,-30.6,-16.2,-23.7,2.18,-7.52,-5.32,9.08,1.58
+Zooplankton,calanoid_cyclopoid,Sierra Nevada Mountains,Blue,SNL-ZOOP-09A,zooplankton,-25.6,-33.5,-30,-20.2,-26.4,1.54,-6.36,-2.86,6.94,0.74
+Zooplankton,Daphnia,Sierra Nevada Mountains,Blue,SNL-ZOOP-10A,zooplankton,-24.8,-31.8,-32.2,-16.9,-29.9,2.32,-4.68,-5.08,10.22,-2.78
+Zooplankton,Daphnia,Sierra Nevada Mountains,Blue,SNL-ZOOP-11A,zooplankton,-21.4,-31,-29.3,-14.8,-23.6,2.62,-6.98,-5.28,9.22,0.42
+Zooplankton,Daphnia,Sierra Nevada Mountains,Cascade,SNL-ZOOP-13A,zooplankton,-21.7,-34.4,-31.3,-16.1,-26.8,4.36,-8.34,-5.24,9.96,-0.74
+Zooplankton,Daphnia,Sierra Nevada Mountains,Cascade,SNL-ZOOP-14A,zooplankton,-22.4,-33.8,-32,-19.4,-26.5,4.42,-6.98,-5.18,7.42,0.32
+Zooplankton,Daphnia,Sierra Nevada Mountains,EasternBrook,SNL-ZOOP-15A,zooplankton,-22.7,-32.9,-29.6,-17.5,-24.9,2.82,-7.38,-4.08,8.02,0.62
+Zooplankton,calanoid_cyclopoid,Sierra Nevada Mountains,EasternBrook,SNL-ZOOP-16A,zooplankton,-23.1,-33.3,-33,-16.8,-25.7,3.28,-6.92,-6.62,9.58,0.68
+Zooplankton,calanoid_cyclopoid,Sierra Nevada Mountains,EasternBrook,SNL-ZOOP-17A,zooplankton,-23.3,-34.2,-31.1,-18.4,-27.6,3.62,-7.28,-4.18,8.52,-0.68
+Zooplankton,calanoid,Sierra Nevada Mountains,Granite2,SNL-ZOOP-18A,zooplankton,-20,-30,-27.5,-13.4,-24,2.98,-7.02,-4.52,9.58,-1.02
+Zooplankton,Daphnia,Sierra Nevada Mountains,Granite2,SNL-ZOOP-19A,zooplankton,-19,-27.7,-26,-12.8,-23,2.7,-6,-4.3,8.9,-1.3
+Zooplankton,Ceriodaphnia,Sierra Nevada Mountains,Granite2,SNL-ZOOP-20A,zooplankton,-17.1,-24.9,-24.5,-9.1,-19.1,1.84,-5.96,-5.56,9.84,-0.16
+Zooplankton,>350um,Sierra Nevada Mountains,Sunrise2,SNL-ZOOP-GFF47,zooplankton,-29.1,-37.5,-36.3,-25.7,-35,3.62,-4.78,-3.58,7.02,-2.28
+Zooplankton,Holopedium,Sierra Nevada Mountains,Cascade,SNL-ZOOP-GFF48,zooplankton,-23.2,-31.9,-30.6,-22.3,-30.4,4.48,-4.22,-2.92,5.38,-2.72
+Zooplankton,>350um,Sierra Nevada Mountains,Blue,SNL-ZOOP-GFF49,zooplankton,-22.5,-33.2,-32.7,-20.5,-26.1,4.5,-6.2,-5.7,6.5,0.9
+Zooplankton,>350um,Sierra Nevada Mountains,EasternBrook,SNL-ZOOP-GFF53,zooplankton,-24.3,-32.9,-32.9,-20.5,-26.5,3.12,-5.48,-5.48,6.92,0.92
+Zooplankton,>350um,Sierra Nevada Mountains,Lukens,SNL-ZOOP-GFF65,zooplankton,-24.4,-35.4,-34.6,-22.9,-29.2,4.9,-6.1,-5.3,6.4,0.1
+Zooplankton,>350um,Sierra Nevada Mountains,Greenstone,SNL-ZOOP-GFF66,zooplankton,-18.1,-28.1,-29.1,-13.2,-19.6,3.52,-6.48,-7.48,8.42,2.02
+Zooplankton,>350um,Sierra Nevada Mountains,Granite2,SNL-ZOOP-GFF67,zooplankton,-18.2,-26,-25.9,-14.4,-21.9,3.08,-4.72,-4.62,6.88,-0.62
+Zooplankton,>350um,Sierra Nevada Mountains,MayPond,SNL-ZOOP-GFF69,zooplankton,-33.1,-40.3,-39.4,-28.6,-36.4,2.46,-4.74,-3.84,6.96,-0.84
+Zooplankton,>350um,Sierra Nevada Mountains,Cascade,SNL-ZOOP-GFF70,zooplankton,-19.6,-31.8,-30.9,-18.7,-24,5.4,-6.8,-5.9,6.3,1
