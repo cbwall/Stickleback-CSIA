@@ -125,6 +125,20 @@ df.long<-df %>% dplyr::select(group, region, lake, type, sex, sample.ID, AA.shor
 make.fac<-c("group", "region", "lake", "type", "AA.short")
 df.long[make.fac] <- lapply(df.long[make.fac], factor)
 
+####### plot ALL AA of the 2 ecotypes
+AA.box.raw.all<-ggplot(df.long, aes(x=AA.short, y=d13C, fill=type))+
+  geom_boxplot(alpha=0.8)+
+  geom_jitter(position = position_jitter(width = 0.1, height = 0.1), 
+              aes(fill=type), colour="black",pch=21, size=1.5)+
+  ylab(expression(paste("AA  ", delta^{13}, C, " (\U2030)"))) +
+  xlab("Amino Acids") +
+  theme_classic()
+
+######
+pdf(file= "figures/AA.box.all.pdf", height=8, width=8)
+plot_grid(AA.box.raw.all)
+dev.off()
+
 # use 'df.long; for ALL AA boxplot below
 ```
 
@@ -218,14 +232,6 @@ dev.off()
 ################ raw data
 df.long.fish<-df.long
 
-####### plot ALL AA of the 2 ecotypes
-AA.box.all<-ggplot(df.long.fish, aes(x=AA.short, y=d13C, fill=type))+
-  geom_boxplot(alpha=0.8)+
-  geom_jitter(position = position_jitter(width = 0.1, height = 0.1), 
-              aes(fill=type), colour="black",pch=21, size=1.5)+
-  ylab(expression(paste("AA  ", delta^{13}, C, " (\U2030)"))) +
-  xlab("Amino Acids") +
-  theme_classic()
 
 ################ normalized data
 # re-melt
